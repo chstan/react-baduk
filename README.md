@@ -1,4 +1,4 @@
-# React Baduk #
+# React Baduk [![npm version](https://badge.fury.io/js/react-baduk.svg)](https://badge.fury.io/js/react-baduk) #
 
 A controlled component for an SVG Go board with some variants.
 
