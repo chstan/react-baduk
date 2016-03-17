@@ -1,0 +1,7 @@
+*.log
+*.DS_Store
+*.swp
+.publish
+example/dist
+
+node_modules

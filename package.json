@@ -1,0 +1,44 @@
+{
+  "name": "react-baduk",
+  "version": "1.0.0",
+  "description": "A react.js component for Go boards",
+  "main": "lib/Baduk.js",
+  "scripts": {
+    "build": "gulp clean && NODE_ENV=production gulp build",
+    "examples": "gulp dev:server",
+    "lint": "eslint ./; true",
+    "release": "gulp release",
+    "start": "gulp dev",
+    "test": "echo 'tests welcome' && exit 0",
+    "watch": "gulp watch:lib"
+  },
+  "readmeFilename": "README.md",
+  "browserify-shim": {
+    "react": "global:React"
+  },
+  "keywords": [
+    "react",
+    "react-baduk",
+    "go",
+    "baduk",
+    "component",
+    "react-component",
+    "board"
+  ],
+  "author": "Conrad Stansbury",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.6.1",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-eslint": "^5.0.0",
+    "eslint": "^2.4.0",
+    "eslint-config-airbnb": "^6.1.0",
+    "eslint-plugin-react": "^4.2.3",
+    "gulp": "^3.9.1",
+    "react-component-gulp-tasks": "^0.7.7"
+  }
+}
