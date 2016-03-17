@@ -16,6 +16,10 @@
   "browserify-shim": {
     "react": "global:React"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chstan/react-baduk.git"
+  },
   "keywords": [
     "react",
     "react-baduk",
