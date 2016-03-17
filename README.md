@@ -2,6 +2,8 @@
 
 A controlled component for an SVG Go board with some variants.
 
+Currently this exposes two components, `BadukBoard` and `Piece`.
+
 # TODO #
 A few things to do
 
