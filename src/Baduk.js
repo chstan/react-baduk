@@ -64,6 +64,40 @@ class BadukBoard extends React.Component {
       labelsFor(yLabelSet, 'y'),
     );
   }
+  getStarPoints() {
+    // should give adaptive star point locations based on board size
+    const { size } = this.props;
+    const middleOffset = (size - 1) / 2;
+    const sideOffset = 3; // this is the constant we should adapt to board size
+
+    const STAR_POINT_RADIUS = 0.12;
+    const starPointAt = (x, y) => (
+      <circle cx={`${x}`} cy={`${y}`} r={STAR_POINT_RADIUS}
+        className="star-point"
+      />
+    );
+
+    // why no cross product lodash?
+    let locations = [
+      [sideOffset, sideOffset],
+      [sideOffset, size - sideOffset - 1],
+      [size - sideOffset - 1, sideOffset],
+      [size - sideOffset - 1, size - sideOffset - 1],
+    ];
+    if (size % 2) {
+      // the board is a normal size, so we place 9 star points
+      // we'll also begrudgingly accept the even case and return just four star points
+      locations = locations.concat([
+        [middleOffset, middleOffset],
+        [middleOffset, sideOffset],
+        [sideOffset, middleOffset],
+        [middleOffset, size - sideOffset - 1],
+        [size - sideOffset - 1, middleOffset],
+      ]);
+    }
+
+    return locations.map((args) => starPointAt(...args));
+  }
   getEmptyPieceTargets() {
     const { size } = this.props;
     return _.range(size * size).map(i => {
@@ -97,6 +131,9 @@ class BadukBoard extends React.Component {
               <g className="empty-piece-targets">
                 { this.getEmptyPieceTargets() }
               </g>
+              <g className="star-points">
+                { this.getStarPoints() }
+              </g>
               <g className="pieces" transform={`translate(${size - 1}, 0), scale(-1, 1)`}>
                 { this.props.children }
               </g>
@@ -109,6 +146,7 @@ class BadukBoard extends React.Component {
 
 BadukBoard.propTypes = {
   className: React.PropTypes.string,
+  starPoints: React.PropTypes.bool,
   size: React.PropTypes.number,
   onClickEmpty: React.PropTypes.func,
   children: React.PropTypes.oneOfType([
@@ -126,6 +164,7 @@ BadukBoard.defaultProps = {
   size: 19, // prefer a standard, full-sized board
   // `onClickEmpty` should take the coordinates of the clicked location on the board
   onClickEmpty: _.noop,
+  starPoints: true,
 };
 
 export {

@@ -14,7 +14,7 @@ A few things to do
 * Variant pieces for move annotations
 * Board from notation
 * Default styles (see example styles for a basic template)
-* Star points
+* Make star point locations adaptive to board size
 * Hover styles on board labels
 * Pre-commit linter
 * Tests
