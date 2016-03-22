@@ -77,7 +77,12 @@ class BadukBoard extends React.Component {
       />
     );
 
-    // why no cross product lodash?
+    if (size === 9) {
+      // just return one star point in the case of a 9x9 board
+      return [starPointAt(4, 4)];
+    }
+
+    // why no cross product, lodash?
     let locations = [
       [sideOffset, sideOffset],
       [sideOffset, size - sideOffset - 1],
