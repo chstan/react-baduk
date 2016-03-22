@@ -104,6 +104,10 @@ BadukBoard.propTypes = {
   ]),
 };
 
+BadukBoard.defaultProps = {
+  size: 19, // prefer a standard, full-sized board
+};
+
 export {
   Piece,
   BadukBoard,
