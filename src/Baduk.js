@@ -73,7 +73,7 @@ class BadukBoard extends React.Component {
     const STAR_POINT_RADIUS = 0.12;
     const starPointAt = (x, y) => (
       <circle cx={`${x}`} cy={`${y}`} r={STAR_POINT_RADIUS}
-        className="star-point"
+        className="star-point" key={`sp${x}-${y}`}
       />
     );
 
