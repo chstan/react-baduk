@@ -8,7 +8,6 @@ Currently this exposes two components, `BadukBoard` and `Piece`.
 A few things to do
 
 ## Critical ##
-* Click events on empty board spaces
 
 ## Lower priority ##
 * Replay component

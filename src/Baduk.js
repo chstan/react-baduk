@@ -2,10 +2,12 @@
 import React from 'react';
 import _ from 'lodash';
 
+const PIECE_RADIUS = 0.48;
+
 class Piece extends React.Component {
   render() {
     return (
-      <circle cx={`${this.props.x}`} cy={`${this.props.y}`} r="0.48"
+      <circle cx={`${this.props.x}`} cy={`${this.props.y}`} r={PIECE_RADIUS}
         className={`piece ${this.props.color}`} onClick={this.props.onClick}
       />
     );
@@ -62,6 +64,19 @@ class BadukBoard extends React.Component {
       labelsFor(yLabelSet, 'y'),
     );
   }
+  getEmptyPieceTargets() {
+    const { size } = this.props;
+    return _.range(size * size).map(i => {
+      const x = i % size;
+      const y = Math.trunc(i / size);
+      const onClickForPiece = this.props.onClickEmpty.bind(this, x, y);
+      return (
+        <circle cx={`${x}`} cy={`${y}`} r={PIECE_RADIUS} key={`pt${i}`}
+          className="piece-target" onClick={ onClickForPiece }
+        />
+      );
+    });
+  }
   render() {
     const className = _.join(_.filter(['table', this.props.className]), ' ');
     const { size } = this.props;
@@ -79,7 +94,10 @@ class BadukBoard extends React.Component {
                 <line key={`ly${i}`} y1="0" y2={`${size - 1}`} x1={`${i}`} x2={`${i}`} />
               )}
               { this.getLabels() }
-              <g transform={`translate(${size - 1}, 0), scale(-1, 1)`}>
+              <g className="empty-piece-targets">
+                { this.getEmptyPieceTargets() }
+              </g>
+              <g className="pieces" transform={`translate(${size - 1}, 0), scale(-1, 1)`}>
                 { this.props.children }
               </g>
           </svg>
@@ -106,6 +124,8 @@ BadukBoard.propTypes = {
 
 BadukBoard.defaultProps = {
   size: 19, // prefer a standard, full-sized board
+  // `onClickEmpty` should take the coordinates of the clicked location on the board
+  onClickEmpty: _.noop,
 };
 
 export {

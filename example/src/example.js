@@ -7,9 +7,11 @@ const App = React.createClass({ // eslint-disable-line
   render() {
     return (
       <section>
-        <BadukBoard size={19} labelStyle="hybrid">
-          <Piece x={4} y={7} color="white" onClick={() => console.log('white')}/>
-          <Piece x={0} y={0} color="black" onClick={() => console.log('black')}/>
+        <BadukBoard size={19} labelStyle="hybrid"
+          onClickEmpty={(x, y) => console.log(`empty ${x} ${y}`)}
+        >
+          <Piece x={4} y={7} color="white" onClick={() => console.log('white')} />
+          <Piece x={0} y={0} color="black" onClick={() => console.log('black')} />
         </BadukBoard>
       </section>
     );
