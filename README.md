@@ -8,6 +8,7 @@ Currently this exposes two components, `BadukBoard` and `Piece`.
 A few things to do
 
 ## High priority ##
+* Add replay controls to gameplay component
 * Default styles (see example styles for a basic template)
 * Make star point locations adaptive to board size
 
