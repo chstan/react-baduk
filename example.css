@@ -1,0 +1,47 @@
+.board {
+  margin: 45px 45px 30px 30px;
+}
+.board svg {
+  overflow-x: visible;
+  overflow-y: visible;
+  width: 400px;
+  height: 400px;
+}
+.board svg rect {
+  fill: rgba(255, 255, 255, 0.08);
+}
+.board svg line {
+  stroke: rgba(0, 0, 0, 0.8);
+  stroke-width: 0.05;
+  stroke-linecap: square;
+}
+.table {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  background-color: #ddb454;
+}
+.label {
+  text-transform: uppercase;
+  font-size: 0.8px;
+  font-weight: bold;
+  font-family: 'Helvetica', sans-serif;
+}
+.label.y-label {
+  alignment-baseline: middle;
+}
+.piece {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+.piece:hover {
+  stroke: green;
+  stroke-width: 0.1;
+}
+.piece.black {
+  fill: black;
+}
+.piece.white {
+  fill: white;
+}
+.piece-target {
+  opacity: 0;
+}
