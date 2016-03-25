@@ -1,6 +1,6 @@
 {
   "name": "react-baduk",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A react.js component for Go boards",
   "main": "lib/Baduk.js",
   "scripts": {
