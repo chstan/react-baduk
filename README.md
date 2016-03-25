@@ -8,11 +8,11 @@ Currently this exposes two components, `BadukBoard` and `Piece`.
 A few things to do
 
 ## High priority ##
-* Game component
 * Default styles (see example styles for a basic template)
 * Make star point locations adaptive to board size
 
 ## Lower priority ##
+* Handicap for game component
 * Puzzle component
 * Variant pieces for move annotations
 * Board from notation
@@ -20,5 +20,7 @@ A few things to do
 * Smarter click detection (single click layer and get mouse coordinates?)
 * Pre-commit linter
 * Tests
+* Rule variants?
+* Label direction and location
 
 ## Known Bugs/Quirks ##
